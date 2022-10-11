@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-header">
+        <div class="container">
+            <table class="table" *ngIf="book && book.length">
+                <thead>
+                    <tr>
+                        <th> Book Tiltle  </th>
+                        <th> Book Author  </th>
+                        <th>  Book Status </th>
+                        <th> Book Duedate  </th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let books of book">
+                    <td>{{books.title}}</td>
+                    <td>{{books.author}}</td>
+                    <td>{{books.status}}</td>
+                    <td>{{books.duedate}}</td>
+                    <td>
+                        <button class="btn btn-warning" style="cursor:pointer" style="margin-left:20px">Update</button>
+                        <button class="btn btn-danger" style="cursor:pointer" >Delete</button>
+                    </td>
+                    </tr>
+                    </tbody>
+                    
+
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<section class="vh-90" style="margin-top:95px;margin-bottom:95px">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form #signup="ngForm" (ngSubmit)="signup.form.valid && signupfn()">
+  
+            <!-- name input -->
+            <div class="form-group">
+              <label  >Full Name</label>
+              <input type="Name" id="fname" class="form-control form-control-lg" placeholder="full name" [(ngModel)]="form.fname" name="fname" #fname="ngModel" required maxlength="32" [ngClass]="{error: fname.errors && fname.touched}">
+              <div *ngIf="fname.errors && fname.touched">
+                <small class="text-danger" *ngIf="fname.errors['required']">Full name is required</small>
+                <small class="text-danger" *ngIf="fname.errors['maxlength']">Maxlength is 32</small>
+              </div>
+            </div>
+  
+            <!-- email input -->
+            <div class="form-group">
+              <label >Valid E-mail ID</label>
+              <input type="e-mail" id="email" class="form-control form-control-lg" placeholder="email-id" [(ngModel)]="form.email" name="email" #email="ngModel" required maxlength="32" [pattern]="emailRegex"[ngClass]="{error: email.errors && email.touched}"  >
+              <div *ngIf="email.errors && email.touched">
+                <small class="text-danger" *ngIf="email.errors['required']">E-mail is required</small>
+                <small class="text-danger" *ngIf="email.errors['maxlength']">Maxlength of email is 32</small>
+                <small class="text-danger" *ngIf="email.errors['pattern']">Enter valid e-mail id</small>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label >Password</label>
+              <input type="password" id="password" class="form-control form-control-lg" placeholder="password" [(ngModel)]="form.password" name="password" #password="ngModel" required minlength="6" maxlength="10"[ngClass]="{error: password.errors && password.touched}" >
+              <div *ngIf="password.errors && password.touched">
+                <small class="text-danger" *ngIf="password.errors['required']">Password is required</small>
+                <small class="text-danger" *ngIf="password.errors['minlength']">Minlength of password is 6</small>
+                <small class="text-danger" *ngIf="password.errors['maxlength']">Maxlength of password is 10</small>
+              </div>
+            </div>
+  
+           
+  
+            <div class="form-group">
+              <label>Mobile No.</label>
+              <input type="number" id="mobile" class="form-control form-control-lg" placeholder="mobile no." [(ngModel)]="form.mobile" name="mobile" #mobile="ngModel" required minlength="10" maxlength="10" [pattern]="integerRegex"[ngClass]="{error: mobile.errors && mobile.touched}" >
+              <div *ngIf="mobile.errors && mobile.touched">
+                <small class="text-danger" *ngIf="mobile.errors['required']">Mobile no. is required</small>
+                <small class="text-danger" *ngIf="mobile.errors['maxlength'] || mobile.errors['minlength'] ||mobile.errors['pattern']">Enter valid mobile no.</small>
+              </div>
+            </div>
+  
+           
+  
+          <div class="form-group">
+              <button type="button" class="btn btn-primary btn-lg" type="submit"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="signup.form.status==='INVALID'" onclick="loggedto();"> Submit </button>
+              
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+

@@ -1,0 +1,64 @@
+<section class="vh-90" style="margin-top:95px;margin-bottom:95px">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+
+
+
+<form  #userlogin="ngForm" (ngSubmit)="loginUser()">
+  
+    <!-- Email input -->
+    <div class="form-group">
+      <label  for="email">Email address</label>
+      <input type="email" id="email"  class="form-control form-control-lg" placeholder="user mail-id" [(ngModel)]="user.email" name="email" #email="ngModel" required maxlength="32" [pattern]="emailRegex" [ngClass]="{error: email.errors && email.touched}">
+      <div *ngIf="email.errors && email.touched">
+        <small class="text-danger" *ngIf="email.errors['required']">E-mail is required</small>
+        <small class="text-danger" *ngIf="email.errors['maxlength']">Maxlength of email is 32</small>
+        <small class="text-danger" *ngIf="email.errors['pattern']">Enter valid e-mail id</small>
+      </div>
+      
+    </div>
+
+    <!-- Password input -->
+    <div class="form-group">
+      <label class="form-label" for="password">Password</label>
+      <input type="password" id="password" class="form-control form-control-lg" placeholder="user password" [(ngModel)]="user.password" name="password" #password="ngModel" required minlength="6" maxlength="10" [ngClass]="{error: password.errors && password.touched}">
+      <div *ngIf="password.errors && password.touched">
+        <small class="text-danger" *ngIf="password.errors['required']">Password is required</small>
+        <small class="text-danger" *ngIf="password.errors['minlength']">Minlength of password is 6</small>
+        <small class="text-danger" *ngIf="password.errors['maxlength']">Maxlength of password is 10</small>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <!-- Checkbox -->
+      <div class="form-check mb-0">
+        <label class="form-check-label" for="form2Example3">
+          Remember me
+        </label>
+        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+        
+      </div>
+      <a href="#!" class="text-body" style="text-decoration: none;">Forgot password?</a>
+    </div>
+
+    <div class="form-group">
+      
+      <button type="button" class="btn btn-primary btn-lg" type="submit"
+        style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="userlogin.form.invalid" onclick="loggedto();">Login </button>
+        
+      <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/signup"
+          class="link-danger" style="text-decoration: none;">Signup</a></p>
+    </div>
+
+  </form>
+</div>
+</div>
+</div>
+</section>
+
