@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-addbook',
   templateUrl: './addbook.component.html',
@@ -14,16 +15,16 @@ export class AddbookComponent implements OnInit {
     
 }
 
-  constructor(private bookservice:BookService) { }
+  constructor(private bookservice:BookService, private router:Router) { }
 
   ngOnInit(): void {
   }
   addbook_f(){
-    console.log(this.book);
+    //console.log(this.book);
     this.bookservice.addbooks(this.book)
-    .subscribe((res)=>{
-      alert('Course successfully added')
-    })
+    console.log("Called");
+    alert("SUCCESSS!!!");
+    this.router.navigate(['/'])
   }
 
 }

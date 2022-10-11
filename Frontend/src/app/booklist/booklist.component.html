@@ -16,8 +16,8 @@
                     <td>{{books.status}}</td>
                     <td>{{books.duedate}}</td>
                     <td>
-                        <button class="btn btn-warning" style="cursor:pointer" style="margin-left:20px">Update</button>
-                        <button class="btn btn-danger" style="cursor:pointer" >Delete</button>
+                        <button class="btn btn-warning" style="cursor:pointer" style="margin-left:20px" (click)="editbook(book)">Update</button>
+                        <button class="btn btn-danger" style="cursor:pointer" (click)="deletebook(book)" >Delete</button>
                     </td>
                     </tr>
                     </tbody>

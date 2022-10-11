@@ -23,4 +23,21 @@ this.bookservice.getbooks().subscribe((data)=>{
 })
   }
 
+  editbook(book:any)
+  {
+    
+    this.router.navigate(['addbook',{book}]);
+
+  }
+  deletebook(book:any){
+    this.bookservice.deletebook(book._id)
+      .subscribe((data) => {
+        this.book = this.book.filter(p => p !== book);
+      })
+  
+
+  }
+
+  
+
 }
